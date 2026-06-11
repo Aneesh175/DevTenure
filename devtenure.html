@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevTenure — Your AI Career Survival Score</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#0A0A0A;
+  --bg2:#111111;
+  --bg3:#1A1A1A;
+  --bg4:#222222;
+  --border:rgba(255,255,255,0.07);
+  --border2:rgba(255,255,255,0.12);
+  --green:#1DB974;
+  --green-dim:rgba(29,185,116,0.12);
+  --green-glow:rgba(29,185,116,0.25);
+  --amber:#F59E0B;
+  --amber-dim:rgba(245,158,11,0.12);
+  --red:#EF4444;
+  --red-dim:rgba(239,68,68,0.12);
+  --text:#F5F5F3;
+  --text2:#A0A09A;
+  --text3:#5A5A56;
+  --radius:10px;
+  --radius-lg:16px;
+  --radius-xl:20px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  font-size:15px;
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* NOISE TEXTURE */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+  opacity:0.4;
+}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:0 28px;height:52px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(10,10,10,0.85);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-logo{
+  display:flex;align-items:center;gap:9px;
+  font-size:14px;font-weight:600;color:var(--text);
+  text-decoration:none;letter-spacing:-0.01em;
+}
+
+.logo-gem{
+  width:26px;height:26px;
+  background:var(--green);
+  border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 12px var(--green-glow);
+}
+
+.logo-gem svg{width:14px;height:14px;fill:#0A0A0A}
+
+.nav-r{display:flex;align-items:center;gap:6px}
+
+.nav-link{
+  font-size:13px;color:var(--text2);text-decoration:none;
+  padding:6px 12px;border-radius:var(--radius);
+  transition:all 0.15s;cursor:pointer;border:none;
+  background:transparent;font-family:'DM Sans',sans-serif;
+}
+.nav-link:hover{color:var(--text);background:var(--bg3)}
+
+.nav-cta{
+  font-size:13px;font-weight:500;
+  background:var(--green);color:#0A0A0A !important;
+  padding:7px 16px;border-radius:var(--radius);
+  border:none;cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.15s;
+  box-shadow:0 0 16px var(--green-glow);
+}
+.nav-cta:hover{opacity:0.88;transform:translateY(-1px)}
+
+/* PAGE */
+.page{padding-top:52px}
+section{display:none}
+section.active{display:block}
+
+/* ================================
+   LANDING
+================================ */
+.land-hero{
+  min-height:calc(100vh - 52px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:60px 24px 40px;
+  position:relative;
+  text-align:center;
+}
+
+/* Glow orb behind input */
+.land-hero::after{
+  content:'';
+  position:absolute;
+  top:40%;left:50%;
+  transform:translate(-50%,-50%);
+  width:600px;height:300px;
+  background:radial-gradient(ellipse, var(--green-glow) 0%, transparent 70%);
+  pointer-events:none;
+  z-index:0;
+}
+
+.land-content{position:relative;z-index:1;width:100%;max-width:580px}
+
+.land-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12px;font-weight:500;
+  color:var(--green);
+  background:var(--green-dim);
+  padding:5px 13px;border-radius:99px;
+  margin-bottom:28px;
+  border:1px solid rgba(29,185,116,0.2);
+}
+
+.live-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:livepulse 2s ease-in-out infinite;
+}
+
+@keyframes livepulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 var(--green-glow)}
+  50%{opacity:0.6;box-shadow:0 0 0 4px transparent}
+}
+
+.land-h{
+  font-size:clamp(32px,5.5vw,52px);
+  font-weight:600;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  color:var(--text);
+  margin-bottom:14px;
+}
+
+.land-h em{font-style:normal;color:var(--green)}
+
+.land-sub{
+  font-size:16px;color:var(--text2);
+  line-height:1.65;margin-bottom:40px;
+  font-weight:400;
+}
+
+/* THE INPUT */
+.hero-input-wrap{
+  position:relative;
+  margin-bottom:20px;
+}
+
+.hero-input{
+  width:100%;
+  padding:18px 60px 18px 22px;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius: var(--radius-xl);
+  font-size:16px;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  outline:none;
+  transition:all 0.2s;
+  box-shadow:0 4px 24px rgba(0,0,0,0.3);
+}
+
+.hero-input::placeholder{color:var(--text3)}
+
+.hero-input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px var(--green-dim), 0 4px 24px rgba(0,0,0,0.3);
+}
+
+.hero-input-btn{
+  position:absolute;right:8px;top:50%;transform:translateY(-50%);
+  width:40px;height:40px;border-radius:12px;
+  background:var(--green);border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.15s;
+  box-shadow:0 0 12px var(--green-glow);
+}
+
+.hero-input-btn:hover{transform:translateY(-50%) scale(1.05)}
+.hero-input-btn svg{width:16px;height:16px;fill:#0A0A0A}
+
+/* SITUATION CHIPS */
+.situation-label{
+  font-size:12px;color:var(--text3);
+  margin-bottom:12px;
+}
+
+.situation-chips{
+  display:flex;flex-wrap:wrap;gap:8px;
+  justify-content:center;margin-bottom:40px;
+}
+
+.sit-chip{
+  font-size:13px;
+  padding:8px 16px;
+  border-radius:99px;
+  border:1px solid var(--border2);
+  background:var(--bg2);
+  color:var(--text2);
+  cursor:pointer;
+  transition:all 0.2s;
+  font-family:'DM Sans',sans-serif;
+}
+
+.sit-chip:hover{
+  border-color:var(--green);
+  color:var(--green);
+  background:var(--green-dim);
+}
+
+/* STATS ROW */
+.land-stats{
+  display:flex;gap:32px;justify-content:center;
+  flex-wrap:wrap;padding-top:32px;
+  border-top:1px solid var(--border);
+}
+
+.land-stat .n{
+  font-family:'DM Mono',monospace;
+  font-size:20px;font-weight:500;
+  color:var(--text);letter-spacing:-0.02em;
+}
+
+.land-stat .l{font-size:11px;color:var(--text3);margin-top:2px}
+
+/* SCROLL INDICATOR */
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  font-size:11px;color:var(--text3);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  animation:bounce 2s ease-in-out infinite;
+  z-index:1;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(4px)}
+}
+
+/* HOW IT WORKS */
+.how-section{
+  padding:80px 24px;
+  max-width:1000px;margin:0 auto;
+}
+
+.section-tag{
+  font-size:11px;font-weight:600;
+  color:var(--green);text-transform:uppercase;
+  letter-spacing:0.1em;margin-bottom:14px;
+}
+
+.section-h{
+  font-size:clamp(24px,3.5vw,34px);
+  font-weight:600;letter-spacing:-0.02em;
+  color:var(--text);margin-bottom:8px;
+  line-height:1.2;
+}
+
+.section-sub{
+  font-size:15px;color:var(--text2);
+  margin-bottom:48px;line-height:1.6;
+}
+
+.how-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:2px;
+  background:var(--border);
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  border:1px solid var(--border);
+}
+
+.how-tile{
+  background:var(--bg);
+  padding:28px 24px;
+  position:relative;
+  transition:background 0.2s;
+}
+
+.how-tile:hover{background:var(--bg2)}
+
+.how-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;font-weight:500;
+  color:var(--text3);
+  margin-bottom:16px;
+  letter-spacing:0.05em;
+}
+
+.how-icon{
+  font-size:24px;margin-bottom:12px;
+}
+
+.how-title{
+  font-size:15px;font-weight:600;
+  color:var(--text);margin-bottom:6px;
+}
+
+.how-desc{
+  font-size:13px;color:var(--text2);line-height:1.6;
+}
+
+/* SOCIAL PROOF */
+.proof-section{
+  padding:0 24px 80px;
+  max-width:1000px;margin:0 auto;
+}
+
+.proof-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px;
+}
+
+.proof-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:20px;
+  transition:border-color 0.2s;
+}
+
+.proof-card:hover{border-color:var(--border2)}
+
+.proof-stars{
+  color:var(--amber);font-size:12px;
+  margin-bottom:12px;letter-spacing:2px;
+}
+
+.proof-q{
+  font-size:14px;color:var(--text2);
+  line-height:1.65;margin-bottom:16px;
+  font-style:italic;
+}
+
+.proof-person{
+  display:flex;align-items:center;gap:10px;
+}
+
+.proof-av{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;
+  flex-shrink:0;
+}
+
+.proof-name{font-size:13px;font-weight:500;color:var(--text)}
+.proof-role{font-size:11px;color:var(--text3)}
+
+/* PRICING */
+.pricing-section{
+  padding:80px 24px;
+  max-width:1000px;margin:0 auto;
+}
+
+.pricing-toggle{
+  display:flex;align-items:center;
+  justify-content:center;gap:10px;
+  margin-bottom:36px;
+}
+
+.tog-lbl{font-size:13px;font-weight:500;color:var(--text3)}
+.tog-lbl.on{color:var(--text)}
+
+.tog-sw{
+  width:42px;height:23px;
+  background:var(--green);border-radius:12px;
+  position:relative;cursor:pointer;transition:background 0.2s;
+  border:none;
+}
+
+.tog-sw::after{
+  content:'';position:absolute;
+  top:3px;left:3px;width:17px;height:17px;
+  border-radius:50%;background:var(--bg);
+  transition:transform 0.2s;
+}
+
+.tog-sw.inr::after{transform:translateX(19px)}
+
+.pricing-cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:12px;margin-bottom:16px;
+}
+
+.p-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:24px;position:relative;
+  transition:border-color 0.2s;
+}
+
+.p-card:hover{border-color:var(--border2)}
+
+.p-card.feat{
+  border:1px solid var(--green);
+  background:var(--bg2);
+  box-shadow:0 0 40px var(--green-glow);
+}
+
+.p-pop{
+  position:absolute;top:-11px;left:50%;
+  transform:translateX(-50%);
+  font-size:11px;font-weight:600;
+  background:var(--green);color:var(--bg);
+  padding:3px 12px;border-radius:99px;
+  white-space:nowrap;
+}
+
+.p-plan{
+  font-size:11px;font-weight:600;
+  color:var(--text3);text-transform:uppercase;
+  letter-spacing:0.09em;margin-bottom:10px;
+}
+
+.p-price{
+  font-size:36px;font-weight:600;
+  font-family:'DM Mono',monospace;
+  letter-spacing:-0.03em;color:var(--text);
+  margin-bottom:2px;
+}
+
+.p-period{font-size:12px;color:var(--text3);margin-bottom:20px}
+
+.p-feats{list-style:none;margin-bottom:20px}
+
+.p-feats li{
+  font-size:13px;color:var(--text2);
+  padding:6px 0;
+  display:flex;align-items:center;gap:9px;
+  border-bottom:1px solid var(--border);
+}
+
+.p-feats li:last-child{border-bottom:none}
+.p-feats li .ck{color:var(--green);font-weight:700;flex-shrink:0}
+.p-feats li .lk{color:var(--text3);flex-shrink:0}
+.p-feats li.dim{opacity:0.4}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 22px;border-radius:var(--radius);
+  font-size:14px;font-weight:500;cursor:pointer;
+  border:none;transition:all 0.15s;
+  text-decoration:none;font-family:'DM Sans',sans-serif;
+}
+
+.btn-green{
+  background:var(--green);color:var(--bg);
+  box-shadow:0 0 16px var(--green-glow);
+}
+
+.btn-green:hover{opacity:0.88;transform:translateY(-1px)}
+
+.btn-ghost{
+  background:transparent;color:var(--text2);
+  border:1px solid var(--border2);
+}
+
+.btn-ghost:hover{background:var(--bg3);color:var(--text)}
+
+.btn-full{width:100%}
+
+.ent-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:24px;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+
+.ent-t{font-size:15px;font-weight:600;color:var(--text);margin-bottom:4px}
+.ent-s{font-size:13px;color:var(--text2)}
+
+/* ================================
+   ONBOARDING
+================================ */
+.ob-page{
+  min-height:calc(100vh - 52px);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:40px 24px;
+}
+
+.ob-wrap{width:100%;max-width:480px}
+
+.ob-progress{
+  display:flex;gap:6px;margin-bottom:36px;
+}
+
+.ob-seg{
+  height:2px;flex:1;border-radius:2px;
+  background:var(--bg4);transition:background 0.4s;
+}
+
+.ob-seg.on{background:var(--green)}
+
+.ob-step{display:none}
+.ob-step.active{display:block}
+
+.ob-greeting{
+  font-size:13px;color:var(--green);
+  font-weight:500;margin-bottom:6px;
+}
+
+.ob-h{
+  font-size:24px;font-weight:600;
+  letter-spacing:-0.02em;color:var(--text);
+  margin-bottom:8px;line-height:1.2;
+}
+
+.ob-p{
+  font-size:14px;color:var(--text2);
+  margin-bottom:28px;line-height:1.6;
+}
+
+.ob-input{
+  width:100%;padding:14px 18px;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-lg);
+  font-size:15px;font-family:'DM Sans',sans-serif;
+  color:var(--text);outline:none;
+  transition:all 0.2s;margin-bottom:10px;
+}
+
+.ob-input::placeholder{color:var(--text3)}
+
+.ob-input:focus{
+  border-color:var(--green);
+  box-shadow:0 0 0 3px var(--green-dim);
+}
+
+.ob-select{
+  width:100%;padding:14px 18px;
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-lg);
+  font-size:15px;font-family:'DM Sans',sans-serif;
+  color:var(--text);outline:none;
+  transition:all 0.2s;margin-bottom:10px;
+  appearance:none;cursor:pointer;
+}
+
+.ob-select:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-dim)}
+
+.ob-label{
+  font-size:11px;font-weight:600;
+  color:var(--text3);text-transform:uppercase;
+  letter-spacing:0.07em;margin-bottom:6px;
+  display:block;
+}
+
+.ob-form-group{margin-bottom:16px}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+
+.chip{
+  font-size:13px;padding:7px 15px;
+  border-radius:99px;border:1px solid var(--border2);
+  cursor:pointer;background:var(--bg2);
+  color:var(--text2);transition:all 0.15s;
+  user-select:none;font-family:'DM Sans',sans-serif;
+}
+
+.chip:hover{border-color:var(--green);color:var(--green)}
+
+.chip.on{
+  background:var(--green-dim);
+  border-color:var(--green);
+  color:var(--green);font-weight:500;
+}
+
+.ob-btn{
+  width:100%;padding:14px;
+  background:var(--green);color:var(--bg);
+  border:none;border-radius:var(--radius-lg);
+  font-size:15px;font-weight:600;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.15s;
+  box-shadow:0 0 20px var(--green-glow);
+  margin-top:8px;
+}
+
+.ob-btn:hover{opacity:0.88;transform:translateY(-1px)}
+
+.ob-back{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:13px;color:var(--text3);
+  background:none;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  margin-bottom:28px;transition:color 0.15s;
+  padding:0;
+}
+
+.ob-back:hover{color:var(--text2)}
+
+/* ================================
+   SCORE SCREEN
+================================ */
+.score-page{
+  min-height:calc(100vh - 52px);
+  padding:40px 24px;
+  max-width:600px;margin:0 auto;
+}
+
+.score-greeting{
+  font-size:14px;color:var(--text2);
+  margin-bottom:6px;font-weight:400;
+}
+
+.score-greeting strong{color:var(--text)}
+
+.score-card{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:28px 24px;
+  margin-bottom:14px;
+  position:relative;overflow:hidden;
+}
+
+.score-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg, var(--amber), var(--green));
+}
+
+.sc-top{
+  display:flex;align-items:flex-start;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.sc-eyebrow{
+  font-size:11px;font-weight:600;
+  color:var(--text3);text-transform:uppercase;
+  letter-spacing:0.08em;margin-bottom:6px;
+}
+
+.sc-num{
+  font-family:'DM Mono',monospace;
+  font-size:72px;font-weight:500;
+  letter-spacing:-0.04em;
+  color:var(--amber);line-height:1;
+  transition:color 1s;
+}
+
+.sc-verdict{
+  font-size:14px;font-weight:500;
+  color:var(--text2);margin-top:4px;
+}
+
+.sc-ring{
+  width:80px;height:80px;flex-shrink:0;
+}
+
+.sc-track{
+  width:100%;height:5px;
+  background:var(--bg4);border-radius:3px;
+  overflow:hidden;margin-bottom:20px;
+}
+
+.sc-fill{
+  height:100%;border-radius:3px;
+  background:var(--amber);width:0%;
+  transition:width 1.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+.sc-metrics{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.sc-metric{
+  background:var(--bg3);border-radius:var(--radius);
+  padding:12px;text-align:center;
+}
+
+.sc-metric .v{
+  font-family:'DM Mono',monospace;
+  font-size:18px;font-weight:500;
+  color:var(--text);
+}
+
+.sc-metric .l{
+  font-size:10px;color:var(--text3);margin-top:3px;
+  text-transform:uppercase;letter-spacing:0.05em;
+}
+
+/* GAPS */
+.gap-box{
+  background:var(--bg2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  overflow:hidden;margin-bottom:14px;
+}
+
+.gap-head{
+  padding:14px 18px;
+  background:var(--bg3);
+  display:flex;align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+}
+
+.gap-head-t{font-size:13px;font-weight:600;color:var(--text)}
+
+.g-tag{
+  font-size:10px;font-weight:600;
+  padding:3px 9px;border-radius:99px;
+}
+
+.g-tag-amber{background:var(--amber-dim);color:var(--amber)}
+.g-tag-red{background:var(--red-dim);color:var(--red)}
+.g-tag-green{background:var(--green-dim);color:var(--green)}
+
+.gap-row{
+  padding:13px 18px;
+  display:flex;align-items:center;gap:12px;
+  border-bottom:1px solid var(--border);
+}
+
+.gap-row:last-child{border-bottom:none}
+
+.gap-icon{
+  width:34px;height:34px;
+  background:var(--bg3);border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;flex-shrink:0;
+}
+
+.gap-info{flex:1}
+.gap-name{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+.gap-detail{font-size:11px;color:var(--text3)}
+
+/* LOCK */
+.lock-wrap{position:relative;margin-bottom:14px}
+.lock-blur{filter:blur(5px);pointer-events:none;opacity:0.35}
+
+.lock-gate{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:2;
+}
+
+.lock-card{
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-xl);
+  padding:24px;text-align:center;
+  max-width:280px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+.lock-ic{font-size:28px;margin-bottom:10px}
+.lock-t{font-size:15px;font-weight:600;color:var(--text);margin-bottom:6px}
+.lock-p{font-size:13px;color:var(--text2);line-height:1.55;margin-bottom:16px}
+
+.roadmap-preview{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius-xl);overflow:hidden;
+}
+
+.rm-row{
+  padding:13px 18px;border-bottom:1px solid var(--border);
+  display:flex;gap:12px;align-items:flex-start;
+}
+
+.rm-row:last-child{border-bottom:none}
+
+.rm-wk{
+  font-size:10px;font-weight:600;
+  font-family:'DM Mono',monospace;
+  background:var(--green-dim);color:var(--green);
+  padding:3px 9px;border-radius:99px;
+  white-space:nowrap;flex-shrink:0;margin-top:1px;
+}
+
+.rm-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:2px}
+.rm-detail{font-size:11px;color:var(--text3)}
+
+/* FOOTER */
+footer{
+  background:var(--bg2);
+  border-top:1px solid var(--border);
+  padding:28px 24px;
+  text-align:center;
+}
+
+.ft-logo{
+  display:flex;align-items:center;justify-content:center;
+  gap:8px;font-weight:600;font-size:14px;
+  color:var(--text);margin-bottom:8px;
+}
+
+.ft-sub{font-size:12px;color:var(--text3)}
+
+/* ANIM */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.land-content{animation:fadeUp 0.5s ease both}
+.ob-wrap{animation:fadeUp 0.35s ease both}
+.score-page > *{animation:fadeUp 0.35s ease both}
+
+@media(max-width:600px){
+  .land-h{font-size:28px}
+  .pricing-cards{grid-template-columns:1fr}
+  .ent-card{flex-direction:column}
+  .how-grid{grid-template-columns:1fr}
+}
+
+/* MODALS */
+.modal-overlay{
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;
+  padding:24px;
+  opacity:0;pointer-events:none;
+  transition:opacity 0.25s;
+}
+
+.modal-overlay.show{
+  opacity:1;pointer-events:all;
+}
+
+.modal-card{
+  background:var(--bg2);
+  border:1px solid var(--border2);
+  border-radius:var(--radius-xl);
+  padding:28px 24px;
+  width:100%;max-width:380px;
+  position:relative;
+  transform:translateY(16px);
+  transition:transform 0.25s;
+  box-shadow:0 32px 80px rgba(0,0,0,0.6);
+}
+
+.modal-overlay.show .modal-card{transform:translateY(0)}
+
+.modal-close{
+  position:absolute;top:14px;right:14px;
+  width:28px;height:28px;
+  background:var(--bg3);border:1px solid var(--border);
+  border-radius:50%;font-size:12px;color:var(--text3);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.15s;font-family:'DM Sans',sans-serif;
+}
+
+.modal-close:hover{color:var(--text);background:var(--bg4)}
+
+.modal-icon{font-size:28px;margin-bottom:12px}
+
+.modal-h{
+  font-size:20px;font-weight:600;
+  color:var(--text);letter-spacing:-0.02em;
+  margin-bottom:8px;
+}
+
+.modal-p{
+  font-size:13px;color:var(--text2);
+  line-height:1.6;margin-bottom:20px;
+}
+
+.modal-benefit{
+  background:var(--bg3);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:12px 14px;
+  margin-bottom:20px;
+}
+
+.modal-benefit-row{
+  display:flex;align-items:center;gap:9px;
+  font-size:13px;color:var(--text2);
+  margin-bottom:7px;
+}
+
+.modal-benefit-row:last-child{margin-bottom:0}
+
+.mbr-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);flex-shrink:0;
+}
+
+.modal-btn-google{
+  width:100%;padding:12px;
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:var(--radius);
+  font-size:14px;font-weight:500;
+  color:var(--text);cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  transition:all 0.15s;margin-bottom:14px;
+}
+
+.modal-btn-google:hover{background:var(--bg4)}
+
+.modal-divider{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:14px;
+}
+
+.modal-divider::before,.modal-divider::after{
+  content:'';flex:1;height:1px;background:var(--border);
+}
+
+.modal-divider span{font-size:12px;color:var(--text3)}
+
+.modal-input{
+  width:100%;padding:12px 14px;
+  background:var(--bg3);
+  border:1px solid var(--border2);
+  border-radius:var(--radius);
+  font-size:14px;font-family:'DM Sans',sans-serif;
+  color:var(--text);outline:none;
+  transition:border 0.15s;margin-bottom:10px;
+}
+
+.modal-input::placeholder{color:var(--text3)}
+.modal-input:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-dim)}
+
+.modal-btn-green{
+  width:100%;padding:13px;
+  background:var(--green);color:var(--bg);
+  border:none;border-radius:var(--radius);
+  font-size:14px;font-weight:600;
+  cursor:pointer;font-family:'DM Sans',sans-serif;
+  transition:all 0.15s;
+  box-shadow:0 0 16px var(--green-glow);
+}
+
+.modal-btn-green:hover{opacity:0.88;transform:translateY(-1px)}
+
+.modal-skip{
+  text-align:center;margin-top:12px;
+  font-size:12px;color:var(--text3);
+  cursor:pointer;transition:color 0.15s;
+}
+
+.modal-skip:hover{color:var(--text2)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#" onclick="show('land')">
+    <div class="logo-gem">
+      <svg viewBox="0 0 16 16"><path d="M8 1L15 5.5V11L8 15L1 11V5.5L8 1Z"/></svg>
+    </div>
+    DevTenure
+  </a>
+  <div class="nav-r">
+    <button class="nav-link" onclick="show('land')">Home</button>
+    <button class="nav-link" onclick="show('land'); setTimeout(()=>document.getElementById('how').scrollIntoView({behavior:'smooth'}),100)">How it works</button>
+    <button class="nav-link" onclick="show('pricing-page')">Pricing</button>
+    <button class="nav-link" onclick="showSigninPopup()" id="nav-signin">Sign in</button>
+    <button class="nav-cta" onclick="show('ob')">Get my score</button>
+  </div>
+</nav>
+
+<div class="page">
+
+<!-- ================================ LANDING ================================ -->
+<section id="sec-land" class="active">
+
+  <div class="land-hero">
+    <div class="land-content">
+      <div class="land-eyebrow"><div class="live-dot"></div> Tracking 2,400 live job postings · Updated daily</div>
+
+      <h1 class="land-h">Your career has a<br><em>survival score.</em><br>Do you know yours?</h1>
+
+      <p class="land-sub">Tell us your role. We'll tell you exactly how safe you are — and what to do about it.</p>
+
+      <div class="hero-input-wrap">
+        <input class="hero-input" id="hero-job-input" type="text" placeholder="What's your job title? e.g. Marketing Manager..." autocomplete="off" />
+        <button class="hero-input-btn" onclick="startFromHero()">
+          <svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </button>
+      </div>
+
+      <div class="situation-label">Or tell us where you're at right now —</div>
+      <div class="situation-chips">
+        <div class="sit-chip" onclick="setSituation('worried')">😰 Worried AI will replace me</div>
+        <div class="sit-chip" onclick="setSituation('lostjob')">📦 Just lost my job</div>
+        <div class="sit-chip" onclick="setSituation('futureproof')">🚀 Want to future-proof myself</div>
+        <div class="sit-chip" onclick="setSituation('switch')">🔄 Career switch or promotion</div>
+      </div>
+
+      <div class="land-stats">
+        <div class="land-stat"><div class="n">4M+</div><div class="l">jobs disrupted by AI in 2025</div></div>
+        <div class="land-stat"><div class="n">18mo</div><div class="l">avg runway left, most don't know</div></div>
+        <div class="land-stat"><div class="n">Free</div><div class="l">to get your score right now</div></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})" style="cursor:pointer">
+      <span>See how it works</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 7l4 4 4-4" stroke="#5A5A56" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-section" id="how">
+    <div class="section-tag">How it works</div>
+    <h2 class="section-h">From scared to prepared<br>in under 3 minutes</h2>
+    <p class="section-sub">No generic advice. No fluff. Just your actual situation, analysed against what the market wants right now.</p>
+
+    <div class="how-grid">
+      <div class="how-tile">
+        <div class="how-num">01</div>
+        <div class="how-icon">🎯</div>
+        <div class="how-title">Tell us your role</div>
+        <div class="how-desc">Any job, any industry. We pull live data specific to your exact role — not a generic category.</div>
+      </div>
+      <div class="how-tile">
+        <div class="how-num">02</div>
+        <div class="how-icon">⚡</div>
+        <div class="how-title">We audit your skills</div>
+        <div class="how-desc">Cross-reference your current skills against what employers are actually hiring for this week.</div>
+      </div>
+      <div class="how-tile">
+        <div class="how-num">03</div>
+        <div class="how-icon">📊</div>
+        <div class="how-title">Get your score</div>
+        <div class="how-desc">A real number. Your runway in months. The exact gaps standing between you and safety.</div>
+      </div>
+      <div class="how-tile">
+        <div class="how-num">04</div>
+        <div class="how-icon">🗺️</div>
+        <div class="how-title">Follow your roadmap</div>
+        <div class="how-desc">Week-by-week plan to close every gap. Updates automatically as the market shifts around you.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROOF -->
+  <div class="proof-section">
+    <div class="section-tag">Real people, real scores</div>
+    <h2 class="section-h" style="margin-bottom:32px">They checked. It changed<br>how they think about work.</h2>
+
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-stars">★★★★★</div>
+        <div class="proof-q">"I was convinced I was fine. My score said 54. That number made me move faster than anything else ever did."</div>
+        <div class="proof-person">
+          <div class="proof-av" style="background:#1A3A2A;color:var(--green)">AR</div>
+          <div>
+            <div class="proof-name">Arjun R.</div>
+            <div class="proof-role">Marketing Manager · Score was 54</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars" style="color:var(--amber)">★★★★<span style="color:var(--text3)">★</span></div>
+        <div class="proof-q">"Got laid off in March. The roadmap was genuinely useful — had a new role in 8 weeks. Would've liked more resources for senior roles though."</div>
+        <div class="proof-person">
+          <div class="proof-av" style="background:#1A2A3A;color:#60A5FA">SK</div>
+          <div>
+            <div class="proof-name">Sarah K.</div>
+            <div class="proof-role">UX Designer · Re-hired in 8 weeks</div>
+          </div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-stars" style="color:var(--amber)">★★★★<span style="color:var(--text3)">★</span></div>
+        <div class="proof-q">"The score alert is what got me. Dropped 13 points in one month without me doing anything. Took it seriously after that. UI could be a bit cleaner but the data is solid."</div>
+        <div class="proof-person">
+          <div class="proof-av" style="background:#2A1A3A;color:#A78BFA">MV</div>
+          <div>
+            <div class="proof-name">Mihail V.</div>
+            <div class="proof-role">Financial Analyst · Score dropped 13pts</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center;padding:0 24px 80px">
+    <button class="btn btn-green" style="font-size:15px;padding:14px 32px;" onclick="show('ob')">Get my free survival score →</button>
+    <p style="font-size:12px;color:var(--text3);margin-top:10px">No credit card. Takes 2 minutes. Free forever.</p>
+  </div>
+
+  <footer>
+    <div class="ft-logo">
+      <div class="logo-gem" style="width:22px;height:22px;border-radius:5px">
+        <svg viewBox="0 0 16 16" style="width:12px;height:12px"><path d="M8 1L15 5.5V11L8 15L1 11V5.5L8 1Z"/></svg>
+      </div>
+      DevTenure
+    </div>
+    <div class="ft-sub">Know your runway. Own your career. © 2026 DevTenure.</div>
+  </footer>
+
+</section>
+
+<!-- ================================ ONBOARDING ================================ -->
+<section id="sec-ob">
+  <div class="ob-page">
+    <div class="ob-wrap">
+      <div class="ob-progress">
+        <div class="ob-seg on" id="ps1"></div>
+        <div class="ob-seg" id="ps2"></div>
+        <div class="ob-seg" id="ps3"></div>
+      </div>
+
+      <!-- STEP 1 — Role info (always shown, wording changes by situation) -->
+      <div class="ob-step active" id="obs1">
+        <div class="ob-greeting" id="ob-greeting">Let's figure out where you stand.</div>
+        <div class="ob-h" id="obs1-h">What's your job title?</div>
+        <div class="ob-p" id="obs1-p">Be specific — the more precise you are, the more accurate your score will be.</div>
+
+        <div class="ob-form-group">
+          <label class="ob-label" id="jobtitle-label">Current job title</label>
+          <input class="ob-input" id="ob-job-input" type="text" placeholder="e.g. Product Manager, Accountant, Graphic Designer..." />
+        </div>
+
+        <div class="ob-form-group" id="company-group">
+          <label class="ob-label">Company name <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
+          <input class="ob-input" id="ob-company" type="text" placeholder="e.g. Infosys, Freelance, Startup..." />
+        </div>
+
+        <div class="ob-form-group">
+          <label class="ob-label">Industry</label>
+          <select class="ob-select" id="ob-industry">
+            <option>Technology</option>
+            <option>Finance & Banking</option>
+            <option>Marketing & Advertising</option>
+            <option>Healthcare</option>
+            <option>Legal</option>
+            <option>Education</option>
+            <option>Design & Creative</option>
+            <option>Operations & Logistics</option>
+            <option>Sales & Business Dev</option>
+            <option>Aerospace & Engineering</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="ob-form-group">
+          <label class="ob-label">Years of experience</label>
+          <select class="ob-select">
+            <option>Less than 1 year</option>
+            <option>1–3 years</option>
+            <option selected>3–6 years</option>
+            <option>6–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+
+        <button class="ob-btn" onclick="goStep(2)">Continue →</button>
+      </div>
+
+      <!-- STEP 2 — Skills (dynamic based on industry) -->
+      <div class="ob-step" id="obs2">
+        <button class="ob-back" onclick="goStep(1)">← Back</button>
+        <div class="ob-greeting">Good. Now let's look at your skills.</div>
+        <div class="ob-h">What do you use day-to-day?</div>
+        <div class="ob-p">Select everything you're genuinely comfortable with — not what you tried once.</div>
+        <div class="chips" id="skills-chips">
+          <!-- Dynamically filled by JS based on industry -->
+        </div>
+        <button class="ob-btn" onclick="goStep(3)">Continue →</button>
+      </div>
+
+      <!-- STEP 3 — Situation-aware final questions -->
+      <div class="ob-step" id="obs3">
+        <button class="ob-back" onclick="goStep(2)">← Back</button>
+        <div class="ob-greeting" id="obs3-greeting">Almost there — last few things.</div>
+        <div class="ob-h" id="obs3-h">Tell us a bit more</div>
+        <div class="ob-p" id="obs3-p">This shapes your roadmap.</div>
+
+        <!-- EMPLOYED / WORRIED -->
+        <div id="ctx-worried" class="ctx-block">
+          <div class="ob-form-group">
+            <label class="ob-label">How secure do you feel in your current role?</label>
+            <select class="ob-select">
+              <option>Very worried — I think I could be replaced soon</option>
+              <option>Somewhat worried — I see the signs</option>
+              <option>Unsure — I want a second opinion</option>
+              <option>Fairly secure — just being proactive</option>
+            </select>
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">Current salary range</label>
+            <select class="ob-select">
+              <option>Prefer not to say</option>
+              <option>Under ₹8L / year</option>
+              <option selected>₹8L – ₹20L / year</option>
+              <option>₹20L – ₹40L / year</option>
+              <option>₹40L+ / year</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- LOST JOB -->
+        <div id="ctx-lostjob" class="ctx-block" style="display:none">
+          <div class="ob-form-group">
+            <label class="ob-label">How long have you been out of work?</label>
+            <select class="ob-select">
+              <option>Just happened — less than a week</option>
+              <option>1–4 weeks</option>
+              <option>1–3 months</option>
+              <option>More than 3 months</option>
+            </select>
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">What matters most right now?</label>
+            <select class="ob-select">
+              <option>Get a job as fast as possible</option>
+              <option>Find something better than my last role</option>
+              <option>Switch to a more AI-proof career</option>
+              <option>Freelance or go independent</option>
+            </select>
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">Previous salary range</label>
+            <select class="ob-select">
+              <option>Prefer not to say</option>
+              <option>Under ₹8L / year</option>
+              <option selected>₹8L – ₹20L / year</option>
+              <option>₹20L – ₹40L / year</option>
+              <option>₹40L+ / year</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- FUTURE PROOF -->
+        <div id="ctx-futureproof" class="ctx-block" style="display:none">
+          <div class="ob-form-group">
+            <label class="ob-label">What does success look like in 2 years?</label>
+            <select class="ob-select">
+              <option>Still employed and thriving in my field</option>
+              <option>Senior role or promotion</option>
+              <option>Higher salary significantly</option>
+              <option>My own business or freelancing</option>
+            </select>
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">Current salary range</label>
+            <select class="ob-select">
+              <option>Prefer not to say</option>
+              <option>Under ₹8L / year</option>
+              <option selected>₹8L – ₹20L / year</option>
+              <option>₹20L – ₹40L / year</option>
+              <option>₹40L+ / year</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- SWITCH / PROMOTE -->
+        <div id="ctx-switch" class="ctx-block" style="display:none">
+          <div class="ob-form-group">
+            <label class="ob-label">What are you moving towards?</label>
+            <select class="ob-select">
+              <option>A promotion in my current company</option>
+              <option>A completely different industry</option>
+              <option>A more AI-resistant role</option>
+              <option>A higher-paying role elsewhere</option>
+            </select>
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">Target role or industry (if known)</label>
+            <input class="ob-input" type="text" placeholder="e.g. Product Management, Data Science..." />
+          </div>
+          <div class="ob-form-group">
+            <label class="ob-label">Current salary range</label>
+            <select class="ob-select">
+              <option>Prefer not to say</option>
+              <option>Under ₹8L / year</option>
+              <option selected>₹8L – ₹20L / year</option>
+              <option>₹20L – ₹40L / year</option>
+              <option>₹40L+ / year</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="ob-form-group" style="margin-top:4px">
+          <label class="ob-label">Email — for monthly score alerts</label>
+          <input class="ob-input" type="email" placeholder="you@email.com" style="margin-bottom:0" />
+        </div>
+
+        <button class="ob-btn" onclick="show('score')">Calculate my survival score →</button>
+        <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">No spam. Only when your score changes.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================ SCORE ================================ -->
+<section id="sec-score">
+  <div class="score-page">
+
+    <div style="margin-bottom:20px;margin-top:8px">
+      <div class="score-greeting">Here's your score, <strong id="score-name">there</strong>. Based on live job data this week.</div>
+    </div>
+
+    <div class="score-card">
+      <div class="sc-top">
+        <div>
+          <div class="sc-eyebrow">Your survival score</div>
+          <div class="sc-num" id="sc-num">0</div>
+          <div class="sc-verdict" id="sc-verdict">Calculating...</div>
+        </div>
+        <svg class="sc-ring" viewBox="0 0 80 80">
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#1A1A1A" stroke-width="6"/>
+          <circle cx="40" cy="40" r="32" fill="none" stroke="#F59E0B" stroke-width="6"
+            stroke-dasharray="201" stroke-dashoffset="201"
+            stroke-linecap="round" transform="rotate(-90 40 40)"
+            id="score-ring" style="transition:stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1)"/>
+        </svg>
+      </div>
+      <div class="sc-track"><div class="sc-fill" id="sc-fill"></div></div>
+      <div class="sc-metrics">
+        <div class="sc-metric"><div class="v" style="color:var(--amber)">11mo</div><div class="l">runway</div></div>
+        <div class="sc-metric"><div class="v">3</div><div class="l">gaps found</div></div>
+        <div class="sc-metric"><div class="v" style="color:var(--red)">↓8%</div><div class="l">demand shift</div></div>
+      </div>
+    </div>
+
+    <div class="gap-box">
+      <div class="gap-head">
+        <div class="gap-head-t">Your top skill gaps</div>
+        <span class="g-tag g-tag-amber">free preview</span>
+      </div>
+      <div class="gap-row">
+        <div class="gap-icon">🤖</div>
+        <div class="gap-info">
+          <div class="gap-name">AI tool proficiency</div>
+          <div class="gap-detail">Required in 61% of job postings for your role this month</div>
+        </div>
+        <span class="g-tag g-tag-red">Critical</span>
+      </div>
+      <div class="gap-row">
+        <div class="gap-icon">📊</div>
+        <div class="gap-info">
+          <div class="gap-name">Data-driven decision making</div>
+          <div class="gap-detail">Present in 48% of mid-senior roles — up 19% from last year</div>
+        </div>
+        <span class="g-tag g-tag-red">High demand</span>
+      </div>
+      <div class="gap-row">
+        <div class="gap-icon">⚙️</div>
+        <div class="gap-info">
+          <div class="gap-name">Process automation</div>
+          <div class="gap-detail">Separates replaceable from irreplaceable in 54% of listings</div>
+        </div>
+        <span class="g-tag g-tag-amber">Rising fast</span>
+      </div>
+    </div>
+
+    <div class="lock-wrap">
+      <div class="lock-blur">
+        <div class="roadmap-preview">
+          <div class="rm-row"><div class="rm-wk">WEEK 1</div><div><div class="rm-title">AI tools for your role</div><div class="rm-detail">3hrs — ChatGPT workflows specific to your job</div></div></div>
+          <div class="rm-row"><div class="rm-wk">WEEK 2</div><div><div class="rm-title">Prompt engineering basics</div><div class="rm-detail">3hrs — How to get real work done with AI</div></div></div>
+          <div class="rm-row"><div class="rm-wk">WEEK 3</div><div><div class="rm-title">Data analysis foundations</div><div class="rm-detail">4hrs — Google Sheets + data storytelling</div></div></div>
+          <div class="rm-row"><div class="rm-wk">WEEK 4</div><div><div class="rm-title">Automate one task this week</div><div class="rm-detail">3hrs — Pick one repetitive task and eliminate it</div></div></div>
+        </div>
+      </div>
+      <div class="lock-gate">
+        <div class="lock-card">
+          <div class="lock-ic">🔒</div>
+          <div class="lock-t">Unlock your full roadmap</div>
+          <div class="lock-p">Week-by-week plan, curated resources, and monthly score alerts when the market shifts.</div>
+          <button class="btn btn-green btn-full" onclick="show('pricing-page')">Unlock for ₹999/mo →</button>
+        </div>
+      </div>
+    </div>
+
+    <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:16px;font-family:'DM Mono',monospace">Score based on 2,400 live postings · Updated May 2026 · Recalculates monthly</p>
+
+  </div>
+</section>
+
+<!-- ================================ PRICING PAGE ================================ -->
+<section id="sec-pricing-page">
+  <div class="pricing-section">
+    <div style="text-align:center;margin-bottom:40px">
+      <div class="section-tag">Pricing</div>
+      <h2 class="section-h">Start free.<br>Upgrade when you're ready.</h2>
+      <p class="section-sub" style="margin-bottom:0">No subscriptions until you've seen your score and believe it.</p>
+    </div>
+
+    <div class="pricing-toggle">
+      <span class="tog-lbl on" id="tl-usd">USD</span>
+      <button class="tog-sw" id="tog" onclick="toggleCurr()"></button>
+      <span class="tog-lbl" id="tl-inr">INR</span>
+    </div>
+
+    <div class="pricing-cards">
+      <div class="p-card">
+        <div class="p-plan">Free</div>
+        <div class="p-price">$0</div>
+        <div class="p-period">forever</div>
+        <ul class="p-feats">
+          <li><span class="ck">✓</span>Survival score</li>
+          <li><span class="ck">✓</span>Top 3 skill gaps</li>
+          <li><span class="ck">✓</span>Monthly score update</li>
+          <li class="dim"><span class="lk">·</span>Full roadmap</li>
+          <li class="dim"><span class="lk">·</span>Detailed gap radar</li>
+          <li class="dim"><span class="lk">·</span>Score change alerts</li>
+        </ul>
+        <button class="btn btn-ghost btn-full" onclick="show('ob')">Get started free</button>
+      </div>
+
+      <div class="p-card feat">
+        <div class="p-pop">most popular</div>
+        <div class="p-plan">Pro</div>
+        <div class="p-price" id="pro-p">$19</div>
+        <div class="p-period" id="pro-per">per month</div>
+        <ul class="p-feats">
+          <li><span class="ck">✓</span>Everything in Free</li>
+          <li><span class="ck">✓</span>Full gap radar</li>
+          <li><span class="ck">✓</span>Week-by-week roadmap</li>
+          <li><span class="ck">✓</span>Score change alerts</li>
+          <li><span class="ck">✓</span>Curated resources</li>
+          <li class="dim"><span class="lk">·</span>AI career coach</li>
+        </ul>
+        <button class="btn btn-green btn-full">Upgrade to Pro →</button>
+      </div>
+
+      <div class="p-card">
+        <div class="p-plan">Elite</div>
+        <div class="p-price" id="elite-p">$49</div>
+        <div class="p-period" id="elite-per">per month</div>
+        <ul class="p-feats">
+          <li><span class="ck">✓</span>Everything in Pro</li>
+          <li><span class="ck">✓</span>AI career coach</li>
+          <li><span class="ck">✓</span>Resume / CV review</li>
+          <li><span class="ck">✓</span>Mock interviews</li>
+          <li><span class="ck">✓</span>Employer match score</li>
+          <li><span class="ck">✓</span>Priority support</li>
+        </ul>
+        <button class="btn btn-ghost btn-full">Go Elite →</button>
+      </div>
+    </div>
+
+    <div class="ent-card">
+      <div>
+        <div class="ent-t">🏢 Teams & Enterprise</div>
+        <div class="ent-s">Know which of your employees are becoming obsolete before they resign or you have to let them go. Team dashboards from ₹40,000/month for 50 seats.</div>
+      </div>
+      <button class="btn btn-ghost" style="white-space:nowrap">Talk to us →</button>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="ft-logo">
+      <div class="logo-gem" style="width:22px;height:22px;border-radius:5px">
+        <svg viewBox="0 0 16 16" style="width:12px;height:12px"><path d="M8 1L15 5.5V11L8 15L1 11V5.5L8 1Z"/></svg>
+      </div>
+      DevTenure
+    </div>
+    <div class="ft-sub">Know your runway. Own your career. © 2026 DevTenure.</div>
+  </footer>
+</section>
+
+</div>
+
+<script>
+// STATE
+let currentSituation = 'worried'; // default
+let signedIn = false;
+
+// SKILLS BY INDUSTRY
+const skillsByIndustry = {
+  'Technology': ['Python / scripting','SQL / databases','AI tools (ChatGPT etc.)','Prompt engineering','Cloud platforms (AWS/GCP)','System design','Code review','API integration','Docker / DevOps','Data analysis','Project management','Team leadership'],
+  'Finance & Banking': ['Financial modelling','Excel / Sheets','SQL / databases','Data analysis','Risk analysis','AI tools (ChatGPT etc.)','Regulatory knowledge','Bloomberg / Reuters','Python / scripting','Accounting software','Client management','Strategic planning'],
+  'Marketing & Advertising': ['Content creation','SEO / SEM','Data analysis','CRM tools','AI tools (ChatGPT etc.)','Social media strategy','Paid ads (Meta/Google)','Email marketing','Copywriting','Brand strategy','Video / visual editing','Market research'],
+  'Healthcare': ['Patient management systems','Medical documentation','Data analysis','Research & reporting','Regulatory compliance','AI diagnostic tools','Team coordination','Written communication','Clinical workflows','Budget management','Training & education','Quality assurance'],
+  'Legal': ['Legal research','Contract drafting','Case management tools','Regulatory knowledge','Written communication','AI legal tools','Client management','Negotiation','Data analysis','Document review','Compliance frameworks','Strategic planning'],
+  'Education': ['Curriculum design','Learning management systems','Data analysis','Written communication','AI tools (ChatGPT etc.)','Student assessment','Content creation','Research & reporting','Team leadership','Presentation skills','Adaptive teaching','Digital tools'],
+  'Design & Creative': ['Figma / design tools','User research','Prototyping','Visual storytelling','AI image tools','Motion design','Brand identity','Copywriting','Content creation','Design systems','Client management','Video editing'],
+  'Operations & Logistics': ['Process automation','Supply chain tools','Data analysis','Excel / Sheets','ERP systems','Project management','Team leadership','Vendor management','Quality control','AI tools (ChatGPT etc.)','Risk management','Reporting & forecasting'],
+  'Sales & Business Dev': ['CRM tools','Negotiation','Client management','Data analysis','Presentation skills','AI tools (ChatGPT etc.)','Email outreach','Revenue forecasting','Market research','Written communication','Strategic planning','Account management'],
+  'Aerospace & Engineering': ['CAD / CAM tools','Systems engineering','Mathematics & modelling','Simulation software','Project management','Technical documentation','Quality assurance','Data analysis','Python / MATLAB','Regulatory compliance','Team leadership','AI tools (ChatGPT etc.)'],
+  'Other': ['Data analysis','Written communication','Project management','AI tools (ChatGPT etc.)','Excel / Sheets','Team leadership','Process automation','Strategic planning','Client management','Presentation skills','Research & reporting','Digital tools']
+};
+
+// SITUATION CONFIG
+const situationConfig = {
+  worried: {
+    greeting: "Let's see how safe your current role really is.",
+    step1h: "Tell us about your current role",
+    step1p: "The more specific you are, the more accurate your score will be.",
+    jobtitleLabel: "Current job title",
+    step3greeting: "Last few things about your situation.",
+    step3h: "How are you feeling about your job?",
+    step3p: "Be honest — this shapes what your roadmap focuses on.",
+    showCtx: "ctx-worried"
+  },
+  lostjob: {
+    greeting: "Let's figure out your best path forward.",
+    step1h: "Tell us about your most recent role",
+    step1p: "We'll use this to calculate your market position and find your fastest route back.",
+    jobtitleLabel: "Most recent job title",
+    step3greeting: "A couple more things to help you.",
+    step3h: "Let's understand your situation",
+    step3p: "No judgment here — just what you need from us.",
+    showCtx: "ctx-lostjob"
+  },
+  futureproof: {
+    greeting: "Smart move. Let's build your career armour.",
+    step1h: "Tell us about your current role",
+    step1p: "We'll show you how strong your position is — and exactly what to do to stay ahead.",
+    jobtitleLabel: "Current job title",
+    step3greeting: "Almost done — one last section.",
+    step3h: "Where do you want to be?",
+    step3p: "Your roadmap will be built around this goal.",
+    showCtx: "ctx-futureproof"
+  },
+  switch: {
+    greeting: "Let's map your move.",
+    step1h: "Tell us where you're coming from",
+    step1p: "We'll calculate how transferable your skills are and what gaps you need to close.",
+    jobtitleLabel: "Current or most recent job title",
+    step3greeting: "Last step — tell us where you want to go.",
+    step3h: "What's the move?",
+    step3p: "The more specific, the better your roadmap.",
+    showCtx: "ctx-switch"
+  }
+};
+
+// NAVIGATION
+function show(name){
+  document.querySelectorAll('section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+name).classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  if(name==='score') runScore();
+}
+
+// HERO INPUT
+function startFromHero(){
+  const val = document.getElementById('hero-job-input').value.trim();
+  if(val){
+    document.getElementById('ob-job-input').value = val;
+  }
+  applySituation(currentSituation);
+  show('ob');
+}
+
+document.getElementById('hero-job-input').addEventListener('keydown', e=>{
+  if(e.key==='Enter') startFromHero();
+});
+
+// SITUATION CHIPS
+function setSituation(sit){
+  currentSituation = sit;
+  applySituation(sit);
+  show('ob');
+}
+
+function applySituation(sit){
+  const cfg = situationConfig[sit] || situationConfig.worried;
+  document.getElementById('ob-greeting').textContent = cfg.greeting;
+  document.getElementById('obs1-h').textContent = cfg.step1h;
+  document.getElementById('obs1-p').textContent = cfg.step1p;
+  document.getElementById('jobtitle-label').textContent = cfg.jobtitleLabel;
+  // Hide company field for lostjob since they're not employed
+  document.getElementById('company-group').style.display = sit === 'lostjob' ? 'none' : 'block';
+}
+
+// DYNAMIC SKILLS
+function renderSkills(){
+  const industry = document.getElementById('ob-industry').value;
+  const skills = skillsByIndustry[industry] || skillsByIndustry['Other'];
+  const container = document.getElementById('skills-chips');
+  container.innerHTML = '';
+  skills.forEach((skill, i) => {
+    const chip = document.createElement('div');
+    chip.className = 'chip' + (i < 3 ? ' on' : '');
+    chip.textContent = skill;
+    chip.onclick = () => chip.classList.toggle('on');
+    container.appendChild(chip);
+  });
+}
+
+document.getElementById('ob-industry').addEventListener('change', renderSkills);
+
+// ONBOARDING STEPS
+function goStep(n){
+  document.querySelectorAll('.ob-step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('obs'+n).classList.add('active');
+  for(let i=1;i<=3;i++){
+    document.getElementById('ps'+i).classList.toggle('on', i<=n);
+  }
+  if(n===2) renderSkills();
+  if(n===3) applyStep3Context();
+}
+
+function applyStep3Context(){
+  const cfg = situationConfig[currentSituation] || situationConfig.worried;
+  document.getElementById('obs3-greeting').textContent = cfg.step3greeting;
+  document.getElementById('obs3-h').textContent = cfg.step3h;
+  document.getElementById('obs3-p').textContent = cfg.step3p;
+  // Show/hide context blocks
+  ['ctx-worried','ctx-lostjob','ctx-futureproof','ctx-switch'].forEach(id=>{
+    document.getElementById(id).style.display = id === cfg.showCtx ? 'block' : 'none';
+  });
+}
+
+// SCORE ANIMATION
+function runScore(){
+  const target = 63;
+  const num = document.getElementById('sc-num');
+  const fill = document.getElementById('sc-fill');
+  const ring = document.getElementById('score-ring');
+  const verdict = document.getElementById('sc-verdict');
+  let cur = 0;
+
+  const jobVal = document.getElementById('ob-job-input').value.trim();
+  document.getElementById('score-name').textContent = jobVal || 'there';
+
+  num.textContent = '0';
+  fill.style.width = '0%';
+  ring.style.strokeDashoffset = '201';
+  verdict.textContent = 'Scanning live job data...';
+
+  setTimeout(()=>{
+    const iv = setInterval(()=>{
+      cur = Math.min(cur+1, target);
+      num.textContent = cur;
+      fill.style.width = cur+'%';
+      ring.style.strokeDashoffset = 201 - (201 * cur / 100);
+      if(cur >= target){
+        clearInterval(iv);
+        verdict.textContent = 'Moderate risk — action needed soon';
+        num.style.color = 'var(--amber)';
+        if(!signedIn) setTimeout(showSigninPopup, 3000);
+      }
+    }, 22);
+  }, 500);
+}
+
+// CURRENCY TOGGLE
+let isINR = false;
+function toggleCurr(){
+  isINR = !isINR;
+  document.getElementById('tog').classList.toggle('inr', isINR);
+  document.getElementById('tl-usd').classList.toggle('on', !isINR);
+  document.getElementById('tl-inr').classList.toggle('on', isINR);
+  document.getElementById('pro-p').textContent = isINR ? '₹999' : '$19';
+  document.getElementById('elite-p').textContent = isINR ? '₹2,499' : '$49';
+}
+
+// MODALS
+function showSigninPopup(){
+  if(signedIn) return;
+  document.getElementById('signin-popup').classList.add('show');
+}
+
+function closeSignin(){
+  document.getElementById('signin-popup').classList.remove('show');
+}
+
+function handleSignin(){
+  signedIn = true;
+  closeSignin();
+  document.getElementById('nav-signin').textContent = '✓ Signed in';
+  document.getElementById('nav-signin').style.color = 'var(--green)';
+}
+
+function showPayment(){
+  closeSignin();
+  document.getElementById('payment-popup').classList.add('show');
+}
+
+function closePayment(){
+  document.getElementById('payment-popup').classList.remove('show');
+}
+</script>
+
+<!-- SIGN IN POPUP -->
+<div id="signin-popup" class="modal-overlay">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeSignin()">✕</button>
+
+    <div class="modal-icon">🎯</div>
+    <div class="modal-h">Save your score</div>
+    <div class="modal-p">Sign in to get an email alert whenever your survival score changes — so you're never caught off guard when the market shifts.</div>
+
+    <div class="modal-benefit">
+      <div class="modal-benefit-row"><span class="mbr-dot"></span><span>Monthly score recalculation — automatic</span></div>
+      <div class="modal-benefit-row"><span class="mbr-dot"></span><span>Email alert if your score drops more than 5 points</span></div>
+      <div class="modal-benefit-row"><span class="mbr-dot"></span><span>Your skill profile saved — no re-entering next time</span></div>
+    </div>
+
+    <button class="modal-btn-google" onclick="closeSignin()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2.01c-.72.48-1.63.77-2.7.77-2.08 0-3.84-1.4-4.47-3.29H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.51 10.53A4.8 4.8 0 0 1 4.26 9c0-.53.09-1.04.25-1.53V5.4H1.83A8 8 0 0 0 .98 9c0 1.29.31 2.51.85 3.6l2.68-2.07z"/><path fill="#EA4335" d="M8.98 3.58c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 .98 9l2.82 2.07C4.14 4.98 6.1 3.58 8.98 3.58z"/></svg>
+      Continue with Google
+    </button>
+
+    <div class="modal-divider"><span>or</span></div>
+
+    <input class="modal-input" type="email" placeholder="Enter your email address" />
+    <button class="modal-btn-green" onclick="closeSignin()">Send me score alerts →</button>
+
+    <div class="modal-skip" onclick="closeSignin()">No thanks, I'll check manually</div>
+  </div>
+</div>
+
+<!-- PAYMENT POPUP -->
+<div id="payment-popup" class="modal-overlay">
+  <div class="modal-card" style="max-width:400px">
+    <button class="modal-close" onclick="closePayment()">✕</button>
+
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px">Upgrading to</div>
+        <div style="font-size:18px;font-weight:600;color:var(--text)">DevTenure Pro</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:'DM Mono',monospace;font-size:24px;font-weight:500;color:var(--green)">₹999</div>
+        <div style="font-size:11px;color:var(--text3)">per month</div>
+      </div>
+    </div>
+
+    <div style="background:var(--bg3);border-radius:var(--radius);padding:12px 14px;margin-bottom:20px;border:1px solid var(--border)">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px">What you're unlocking</div>
+      <div class="modal-benefit-row" style="margin-bottom:6px"><span class="mbr-dot"></span><span style="font-size:13px;color:var(--text2)">Full gap radar with all skill gaps</span></div>
+      <div class="modal-benefit-row" style="margin-bottom:6px"><span class="mbr-dot"></span><span style="font-size:13px;color:var(--text2)">Week-by-week personal roadmap</span></div>
+      <div class="modal-benefit-row" style="margin-bottom:6px"><span class="mbr-dot"></span><span style="font-size:13px;color:var(--text2)">Score change email alerts</span></div>
+      <div class="modal-benefit-row"><span class="mbr-dot"></span><span style="font-size:13px;color:var(--text2)">Curated learning resources</span></div>
+    </div>
+
+    <div style="margin-bottom:12px">
+      <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px">Card details</div>
+      <input class="modal-input" placeholder="Card number" style="margin-bottom:8px" />
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <input class="modal-input" placeholder="MM / YY" style="margin-bottom:0" />
+        <input class="modal-input" placeholder="CVC" style="margin-bottom:0" />
+      </div>
+    </div>
+
+    <input class="modal-input" placeholder="Name on card" />
+
+    <button class="modal-btn-green" onclick="closePayment()" style="margin-top:4px">
+      Pay ₹999 securely →
+    </button>
+
+    <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L1 4v4l5 3 5-3V4L6 1z" stroke="#5A5A56" stroke-width="1" fill="none"/></svg>
+      <span style="font-size:11px;color:var(--text3)">Secured by Stripe · Cancel anytime</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
