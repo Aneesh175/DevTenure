@@ -129,15 +129,15 @@ section.active{display:block}
   z-index:0;
 }
 
-.land-content{position:relative;z-index:1;width:100%;max-width:580px}
+.land-content{position:relative;z-index:1;width:100%;max-width:680px}
 
 .land-eyebrow{
   display:inline-flex;align-items:center;gap:7px;
-  font-size:12px;font-weight:500;
+  font-size:11px;font-weight:500;
   color:var(--green);
   background:var(--green-dim);
-  padding:5px 13px;border-radius:99px;
-  margin-bottom:28px;
+  padding:4px 11px;border-radius:99px;
+  margin-bottom:18px;
   border:1px solid rgba(29,185,116,0.2);
 }
 
@@ -153,19 +153,19 @@ section.active{display:block}
 }
 
 .land-h{
-  font-size:clamp(32px,5.5vw,52px);
+  font-size:clamp(26px,4vw,38px);
   font-weight:600;
-  line-height:1.1;
-  letter-spacing:-0.03em;
+  line-height:1.15;
+  letter-spacing:-0.025em;
   color:var(--text);
-  margin-bottom:14px;
+  margin-bottom:10px;
 }
 
 .land-h em{font-style:normal;color:var(--green)}
 
 .land-sub{
-  font-size:16px;color:var(--text2);
-  line-height:1.65;margin-bottom:40px;
+  font-size:14px;color:var(--text2);
+  line-height:1.6;margin-bottom:28px;
   font-weight:400;
 }
 
@@ -215,13 +215,13 @@ section.active{display:block}
 }
 
 .situation-chips{
-  display:flex;flex-wrap:wrap;gap:8px;
-  justify-content:center;margin-bottom:40px;
+  display:flex;flex-wrap:wrap;gap:7px;
+  justify-content:center;margin-bottom:28px;
 }
 
 .sit-chip{
-  font-size:13px;
-  padding:8px 16px;
+  font-size:12px;
+  padding:7px 14px;
   border-radius:99px;
   border:1px solid var(--border2);
   background:var(--bg2);
@@ -239,18 +239,18 @@ section.active{display:block}
 
 /* STATS ROW */
 .land-stats{
-  display:flex;gap:32px;justify-content:center;
-  flex-wrap:wrap;padding-top:32px;
+  display:flex;gap:28px;justify-content:center;
+  flex-wrap:wrap;padding-top:24px;
   border-top:1px solid var(--border);
 }
 
 .land-stat .n{
   font-family:'DM Mono',monospace;
-  font-size:20px;font-weight:500;
+  font-size:18px;font-weight:500;
   color:var(--text);letter-spacing:-0.02em;
 }
 
-.land-stat .l{font-size:11px;color:var(--text3);margin-top:2px}
+.land-stat .l{font-size:11px;color:var(--text3);margin-top:1px}
 
 /* SCROLL INDICATOR */
 .scroll-hint{
@@ -268,26 +268,26 @@ section.active{display:block}
 
 /* HOW IT WORKS */
 .how-section{
-  padding:80px 24px;
-  max-width:1000px;margin:0 auto;
+  padding:56px 40px;
+  max-width:1200px;margin:0 auto;
 }
 
 .section-tag{
   font-size:11px;font-weight:600;
   color:var(--green);text-transform:uppercase;
-  letter-spacing:0.1em;margin-bottom:14px;
+  letter-spacing:0.08em;margin-bottom:10px;
 }
 
 .section-h{
-  font-size:clamp(24px,3.5vw,34px);
+  font-size:clamp(20px,2.8vw,26px);
   font-weight:600;letter-spacing:-0.02em;
-  color:var(--text);margin-bottom:8px;
-  line-height:1.2;
+  color:var(--text);margin-bottom:6px;
+  line-height:1.25;
 }
 
 .section-sub{
-  font-size:15px;color:var(--text2);
-  margin-bottom:48px;line-height:1.6;
+  font-size:13px;color:var(--text2);
+  margin-bottom:32px;line-height:1.6;
 }
 
 .how-grid{
@@ -302,7 +302,7 @@ section.active{display:block}
 
 .how-tile{
   background:var(--bg);
-  padding:28px 24px;
+  padding:20px 18px;
   position:relative;
   transition:background 0.2s;
 }
@@ -311,29 +311,29 @@ section.active{display:block}
 
 .how-num{
   font-family:'DM Mono',monospace;
-  font-size:11px;font-weight:500;
+  font-size:10px;font-weight:500;
   color:var(--text3);
-  margin-bottom:16px;
+  margin-bottom:12px;
   letter-spacing:0.05em;
 }
 
 .how-icon{
-  font-size:24px;margin-bottom:12px;
+  font-size:20px;margin-bottom:8px;
 }
 
 .how-title{
-  font-size:15px;font-weight:600;
-  color:var(--text);margin-bottom:6px;
+  font-size:13px;font-weight:600;
+  color:var(--text);margin-bottom:4px;
 }
 
 .how-desc{
-  font-size:13px;color:var(--text2);line-height:1.6;
+  font-size:12px;color:var(--text2);line-height:1.55;
 }
 
 /* SOCIAL PROOF */
 .proof-section{
-  padding:0 24px 80px;
-  max-width:1000px;margin:0 auto;
+  padding:0 40px 56px;
+  max-width:1200px;margin:0 auto;
 }
 
 .proof-grid{
@@ -379,8 +379,8 @@ section.active{display:block}
 
 /* PRICING */
 .pricing-section{
-  padding:80px 24px;
-  max-width:1000px;margin:0 auto;
+  padding:56px 40px;
+  max-width:1200px;margin:0 auto;
 }
 
 .pricing-toggle{
@@ -633,16 +633,17 @@ section.active{display:block}
 ================================ */
 .score-page{
   min-height:calc(100vh - 52px);
-  padding:40px 24px;
-  max-width:600px;margin:0 auto;
+  padding:32px 40px;
+  max-width:760px;margin:0 auto;
 }
 
 .score-greeting{
-  font-size:14px;color:var(--text2);
-  margin-bottom:6px;font-weight:400;
+  font-size:22px;color:var(--text);
+  margin-bottom:4px;font-weight:600;
+  letter-spacing:-0.02em;
 }
 
-.score-greeting strong{color:var(--text)}
+.score-greeting strong{color:var(--green)}
 
 .score-card{
   background:var(--bg2);
@@ -992,7 +993,13 @@ footer{
     <button class="nav-link" onclick="show('land')">Home</button>
     <button class="nav-link" onclick="show('land'); setTimeout(()=>document.getElementById('how').scrollIntoView({behavior:'smooth'}),100)">How it works</button>
     <button class="nav-link" onclick="show('pricing-page')">Pricing</button>
-    <button class="nav-link" onclick="showSigninPopup()" id="nav-signin">Sign in</button>
+    <div id="nav-signin" onclick="showSigninPopup()" style="cursor:pointer">
+      <button class="nav-link" id="nav-signin-btn">Sign in</button>
+    </div>
+    <div id="nav-profile" style="display:none;align-items:center;gap:8px;cursor:pointer" onclick="showSigninPopup()">
+      <div id="nav-avatar" style="width:28px;height:28px;border-radius:50%;background:var(--green-dim);border:1px solid var(--green);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--green)">?</div>
+      <span id="nav-profile-name" style="font-size:13px;color:var(--text2)">My account</span>
+    </div>
     <button class="nav-cta" onclick="show('ob')">Get my score</button>
   </div>
 </nav>
@@ -1114,19 +1121,80 @@ footer{
     </div>
   </div>
 
+  <div style="max-width:1200px;margin:0 auto;padding:0 40px 48px">
+    <div class="section-tag" style="margin-bottom:16px">Common questions</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px">
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">How is the score calculated?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">We pull live job postings for your role daily and cross-reference them against your skills. The score reflects skill match rate, market demand trend, and salary positioning — all shown transparently on your results page. No black box.</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Why do you need my salary?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">Companies replace expensive people first when AI can do the same job cheaper. Your salary tells us if you're economically at risk — not just skill-wise. It's optional, but it makes your score significantly more accurate.</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">What's actually in the paid roadmap?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">Not generic YouTube links. A prioritised week-by-week plan for your specific gaps. Updates every month as the market shifts. If you don't find it useful in 7 days — full refund, no questions asked.</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Who built this?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">A small independent team. We built this because we couldn't find an honest, data-backed answer to "am I going to be okay?" Everything else was generic advice or expensive coaches. Email us anytime: <a href="mailto:hello@devtenure.io" style="color:var(--green);text-decoration:none">hello@devtenure.io</a></div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">What happens to my data?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">Never sold individually. We use anonymised patterns to improve the product. Delete everything permanently from account settings anytime. We don't share individual profiles with employers, companies, or recruiters — ever.</div>
+      </div>
+      <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px">
+        <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px">Can I cancel anytime?</div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.65">One click in account settings. No dark patterns, no guilt screens, no hidden fees. Your free score and full breakdown stay accessible even after cancelling Pro.</div>
+      </div>
+    </div>
+  </div>
+
   <div style="text-align:center;padding:0 24px 80px">
     <button class="btn btn-green" style="font-size:15px;padding:14px 32px;" onclick="show('ob')">Get my free survival score →</button>
     <p style="font-size:12px;color:var(--text3);margin-top:10px">No credit card. Takes 2 minutes. Free forever.</p>
   </div>
 
   <footer>
-    <div class="ft-logo">
-      <div class="logo-gem" style="width:22px;height:22px;border-radius:5px">
-        <svg viewBox="0 0 16 16" style="width:12px;height:12px"><path d="M8 1L15 5.5V11L8 15L1 11V5.5L8 1Z"/></svg>
+    <div style="max-width:1200px;margin:0 auto;padding:40px 40px 24px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;border-top:1px solid var(--border);flex-wrap:wrap">
+      <div>
+        <div class="ft-logo" style="justify-content:flex-start;margin-bottom:10px">
+          <div class="logo-gem" style="width:22px;height:22px;border-radius:5px">
+            <svg viewBox="0 0 16 16" style="width:12px;height:12px"><path d="M8 1L15 5.5V11L8 15L1 11V5.5L8 1Z"/></svg>
+          </div>
+          DevTenure
+        </div>
+        <div style="font-size:12px;color:var(--text3);line-height:1.7;max-width:280px;text-align:left">Built by a team that watched colleagues lose jobs to AI and realised nobody had a clear answer for what to do next. This is that answer.</div>
+        <div style="margin-top:12px;font-size:12px;color:var(--text3)">Questions? <a href="mailto:hello@devtenure.io" style="color:var(--green);text-decoration:none">hello@devtenure.io</a></div>
       </div>
-      DevTenure
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Product</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="#" onclick="show('land')" style="font-size:13px;color:var(--text3);text-decoration:none;transition:color 0.15s" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">How it works</a>
+          <a href="#" onclick="show('pricing-page')" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Pricing</a>
+          <a href="#" onclick="show('ob')" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Get my score</a>
+          <a href="#" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Enterprise</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px">Trust & Legal</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <a href="#" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Privacy policy</a>
+          <a href="#" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Terms of service</a>
+          <a href="#" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Delete my data</a>
+          <a href="https://stripe.com/docs/security" target="_blank" style="font-size:13px;color:var(--text3);text-decoration:none" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--text3)'">Payment security</a>
+        </div>
+      </div>
     </div>
-    <div class="ft-sub">Know your runway. Own your career. © 2026 DevTenure.</div>
+    <div style="max-width:1200px;margin:0 auto;padding:16px 40px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div class="ft-sub">© 2026 DevTenure · Know your runway. Own your career.</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <span style="font-size:11px;color:var(--text3)">🔒 Data never sold individually · used only to improve your score</span>
+        <span style="font-size:11px;color:var(--text3)">🛡️ Secured by Stripe</span>
+        <span style="font-size:11px;color:var(--text3)">🗑️ Delete anytime</span>
+      </div>
+    </div>
   </footer>
 
 </section>
@@ -1148,13 +1216,13 @@ footer{
         <div class="ob-p" id="obs1-p">Be specific — the more precise you are, the more accurate your score will be.</div>
 
         <div class="ob-form-group">
-          <label class="ob-label" id="jobtitle-label">Current job title</label>
-          <input class="ob-input" id="ob-job-input" type="text" placeholder="e.g. Product Manager, Accountant, Graphic Designer..." />
+          <label class="ob-label" id="jobtitle-label">Current job title <span style="color:var(--red)">*</span></label>
+          <input class="ob-input" id="ob-job-input" required type="text" placeholder="e.g. Product Manager, Accountant, Graphic Designer..." />
         </div>
 
         <div class="ob-form-group" id="company-group">
-          <label class="ob-label">Company name <span style="color:var(--text3);font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></label>
-          <input class="ob-input" id="ob-company" type="text" placeholder="e.g. Infosys, Freelance, Startup..." />
+          <label class="ob-label">Company name <span style="color:var(--red)">*</span></label>
+          <input class="ob-input" id="ob-company" type="text" required placeholder="e.g. Infosys, Freelance, Startup..." />
         </div>
 
         <div class="ob-form-group">
@@ -1219,7 +1287,7 @@ footer{
             </select>
           </div>
           <div class="ob-form-group">
-            <label class="ob-label">Current salary range</label>
+            <label class="ob-label">Current salary range <span style="color:var(--red)">*</span></label>
             <select class="ob-select">
               <option>Prefer not to say</option>
               <option>Under ₹8L / year</option>
@@ -1227,10 +1295,9 @@ footer{
               <option>₹20L – ₹40L / year</option>
               <option>₹40L+ / year</option>
             </select>
+            <div style="font-size:11px;color:var(--text3);margin-top:5px">We use this to benchmark your role against market rates and identify if you're underpaid or at higher risk of replacement.</div>
           </div>
         </div>
-
-        <!-- LOST JOB -->
         <div id="ctx-lostjob" class="ctx-block" style="display:none">
           <div class="ob-form-group">
             <label class="ob-label">How long have you been out of work?</label>
@@ -1251,7 +1318,7 @@ footer{
             </select>
           </div>
           <div class="ob-form-group">
-            <label class="ob-label">Previous salary range</label>
+            <label class="ob-label">Previous salary range <span style="color:var(--red)">*</span></label>
             <select class="ob-select">
               <option>Prefer not to say</option>
               <option>Under ₹8L / year</option>
@@ -1259,10 +1326,9 @@ footer{
               <option>₹20L – ₹40L / year</option>
               <option>₹40L+ / year</option>
             </select>
+            <div style="font-size:11px;color:var(--text3);margin-top:5px">Helps us find roles at the right level and flag if you were underpaid — sometimes that's what caused the layoff.</div>
           </div>
         </div>
-
-        <!-- FUTURE PROOF -->
         <div id="ctx-futureproof" class="ctx-block" style="display:none">
           <div class="ob-form-group">
             <label class="ob-label">What does success look like in 2 years?</label>
@@ -1274,7 +1340,7 @@ footer{
             </select>
           </div>
           <div class="ob-form-group">
-            <label class="ob-label">Current salary range</label>
+            <label class="ob-label">Current salary range <span style="color:var(--red)">*</span></label>
             <select class="ob-select">
               <option>Prefer not to say</option>
               <option>Under ₹8L / year</option>
@@ -1282,6 +1348,7 @@ footer{
               <option>₹20L – ₹40L / year</option>
               <option>₹40L+ / year</option>
             </select>
+            <div style="font-size:11px;color:var(--text3);margin-top:5px">We use this to show you where you stand vs market rate and calculate how much your skills are actually worth.</div>
           </div>
         </div>
 
@@ -1301,7 +1368,7 @@ footer{
             <input class="ob-input" type="text" placeholder="e.g. Product Management, Data Science..." />
           </div>
           <div class="ob-form-group">
-            <label class="ob-label">Current salary range</label>
+            <label class="ob-label">Current salary range <span style="color:var(--red)">*</span></label>
             <select class="ob-select">
               <option>Prefer not to say</option>
               <option>Under ₹8L / year</option>
@@ -1309,12 +1376,26 @@ footer{
               <option>₹20L – ₹40L / year</option>
               <option>₹40L+ / year</option>
             </select>
+            <div style="font-size:11px;color:var(--text3);margin-top:5px">Helps us estimate the salary jump you can realistically target and which roles are within reach.</div>
           </div>
         </div>
 
         <div class="ob-form-group" style="margin-top:4px">
-          <label class="ob-label">Email — for monthly score alerts</label>
-          <input class="ob-input" type="email" placeholder="you@email.com" style="margin-bottom:0" />
+          <label class="ob-label">Your name <span style="color:var(--red)">*</span></label>
+          <input class="ob-input" id="ob-name" type="text" required placeholder="First name is fine" />
+        </div>
+
+        <div class="ob-form-group">
+          <label class="ob-label">Email <span style="color:var(--red)">*</span></label>
+          <input class="ob-input" id="ob-email" type="email" required placeholder="you@email.com" style="margin-bottom:0" />
+          <div style="font-size:11px;color:var(--text3);margin-top:5px">We send your score here and alert you if it changes. Nothing else.</div>
+        </div>
+
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--radius);padding:12px 14px;margin-bottom:16px;margin-top:4px">
+          <div style="display:flex;gap:10px;align-items:flex-start">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px"></div>
+            <div style="font-size:12px;color:var(--text3);line-height:1.6">Your data is <strong style="color:var(--text2)">never sold or shared individually.</strong> We only use anonymised, aggregated patterns to improve the product. You can delete your account anytime.</div>
+          </div>
         </div>
 
         <button class="ob-btn" onclick="show('score')">Calculate my survival score →</button>
@@ -1331,6 +1412,7 @@ footer{
 
     <div style="margin-bottom:20px;margin-top:8px">
       <div class="score-greeting">Here's your score, <strong id="score-name">there</strong>. Based on live job data this week.</div>
+      <div id="score-context-line" style="font-size:12px;color:var(--text3);margin-top:4px"></div>
     </div>
 
     <div class="score-card">
@@ -1356,34 +1438,119 @@ footer{
       </div>
     </div>
 
+    <div class="gap-box" style="margin-bottom:14px">
+      <div class="gap-head">
+        <div class="gap-head-t">Why is your score 63?</div>
+        <span class="g-tag g-tag-green">free · full breakdown</span>
+      </div>
+
+      <div style="padding:14px 18px;border-bottom:1px solid var(--border)">
+        <div style="font-size:12px;color:var(--text3);margin-bottom:12px;font-family:'DM Mono',monospace">Based on 2,400 live job postings for your role · scraped this week</div>
+
+        <!-- SCORE FACTOR 1 -->
+        <div style="margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="font-size:13px;font-weight:500;color:var(--text)">Skills match</span>
+            <span style="font-size:13px;font-weight:600;color:var(--amber);font-family:'DM Mono',monospace">6/10 skills matched</span>
+          </div>
+          <div style="height:5px;background:var(--bg4);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:60%;background:var(--amber);border-radius:3px"></div>
+          </div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">You have 6 of the 10 most-demanded skills for your role. The 4 missing ones appear in over 50% of job postings.</div>
+        </div>
+
+        <!-- SCORE FACTOR 2 -->
+        <div style="margin-bottom:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="font-size:13px;font-weight:500;color:var(--text)">Market demand for your role</span>
+            <span style="font-size:13px;font-weight:600;color:var(--red);font-family:'DM Mono',monospace">↓8% this month</span>
+          </div>
+          <div style="height:5px;background:var(--bg4);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:38%;background:var(--red);border-radius:3px"></div>
+          </div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">Job postings for your role dropped 8% in the last 30 days. This pulls your score down — fewer openings means more competition.</div>
+        </div>
+
+        <!-- SCORE FACTOR 3 -->
+        <div style="margin-bottom:4px">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px">
+            <span style="font-size:13px;font-weight:500;color:var(--text)">Salary vs market rate</span>
+            <span style="font-size:13px;font-weight:600;color:var(--green);font-family:'DM Mono',monospace">Within range</span>
+          </div>
+          <div style="height:5px;background:var(--bg4);border-radius:3px;overflow:hidden">
+            <div style="height:100%;width:72%;background:var(--green);border-radius:3px"></div>
+          </div>
+          <div style="font-size:11px;color:var(--text3);margin-top:4px">Your salary is within the market range for your role. You're not at economic risk of being replaced purely on cost grounds — for now.</div>
+        </div>
+      </div>
+
+      <!-- WHAT MODERATE RISK MEANS -->
+      <div style="padding:14px 18px;background:var(--bg3)">
+        <div style="font-size:12px;font-weight:600;color:var(--text2);margin-bottom:8px">What "Moderate Risk" means</div>
+        <div style="display:flex;gap:10px;margin-bottom:6px">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px"></div>
+          <div style="font-size:12px;color:var(--text3)"><strong style="color:var(--text2)">Score 75–100:</strong> Low risk. Your skills match market demand well and your role is growing.</div>
+        </div>
+        <div style="display:flex;gap:10px;margin-bottom:6px">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--amber);flex-shrink:0;margin-top:5px"></div>
+          <div style="font-size:12px;color:var(--text3)"><strong style="color:var(--text2)">Score 50–74:</strong> Moderate risk. Skill gaps exist that employers are actively screening for. Action in the next 6 months matters.</div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <div style="width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:5px"></div>
+          <div style="font-size:12px;color:var(--text3)"><strong style="color:var(--text2)">Score 0–49:</strong> High risk. Multiple critical gaps, declining demand, or salary above market. Immediate action needed.</div>
+        </div>
+      </div>
+    </div>
+
     <div class="gap-box">
       <div class="gap-head">
-        <div class="gap-head-t">Your top skill gaps</div>
-        <span class="g-tag g-tag-amber">free preview</span>
+        <div class="gap-head-t">Your top skill gaps — with free starting points</div>
+        <span class="g-tag g-tag-amber">free</span>
       </div>
-      <div class="gap-row">
-        <div class="gap-icon">🤖</div>
-        <div class="gap-info">
-          <div class="gap-name">AI tool proficiency</div>
-          <div class="gap-detail">Required in 61% of job postings for your role this month</div>
+      <div class="gap-row" style="flex-direction:column;align-items:flex-start;gap:8px">
+        <div style="display:flex;align-items:center;gap:12px;width:100%">
+          <div class="gap-icon">🤖</div>
+          <div class="gap-info">
+            <div class="gap-name">AI tool proficiency</div>
+            <div class="gap-detail">Required in 61% of job postings for your role this month</div>
+          </div>
+          <span class="g-tag g-tag-red" style="flex-shrink:0">Critical</span>
         </div>
-        <span class="g-tag g-tag-red">Critical</span>
+        <div style="margin-left:46px;background:var(--bg3);border-radius:var(--radius);padding:9px 12px;width:calc(100% - 46px)">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">Free starting point</div>
+          <div style="font-size:12px;color:var(--text2)">Start with <a href="https://learn.deeplearning.ai" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500">DeepLearning.AI short courses</a> — free, takes 1–2 hours. Specifically "ChatGPT Prompt Engineering for Developers" is directly applicable to your role.</div>
+        </div>
       </div>
-      <div class="gap-row">
-        <div class="gap-icon">📊</div>
-        <div class="gap-info">
-          <div class="gap-name">Data-driven decision making</div>
-          <div class="gap-detail">Present in 48% of mid-senior roles — up 19% from last year</div>
+      <div class="gap-row" style="flex-direction:column;align-items:flex-start;gap:8px">
+        <div style="display:flex;align-items:center;gap:12px;width:100%">
+          <div class="gap-icon">📊</div>
+          <div class="gap-info">
+            <div class="gap-name">Data-driven decision making</div>
+            <div class="gap-detail">Present in 48% of mid-senior roles — up 19% from last year</div>
+          </div>
+          <span class="g-tag g-tag-red" style="flex-shrink:0">High demand</span>
         </div>
-        <span class="g-tag g-tag-red">High demand</span>
+        <div style="margin-left:46px;background:var(--bg3);border-radius:var(--radius);padding:9px 12px;width:calc(100% - 46px)">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">Free starting point</div>
+          <div style="font-size:12px;color:var(--text2)"><a href="https://www.coursera.org/learn/making-data-driven-decisions" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500">Google's Data-Driven Decision Making</a> on Coursera — free to audit. 6 hours total. Directly maps to what employers are screening for.</div>
+        </div>
       </div>
-      <div class="gap-row">
-        <div class="gap-icon">⚙️</div>
-        <div class="gap-info">
-          <div class="gap-name">Process automation</div>
-          <div class="gap-detail">Separates replaceable from irreplaceable in 54% of listings</div>
+      <div class="gap-row" style="flex-direction:column;align-items:flex-start;gap:8px;border-bottom:none">
+        <div style="display:flex;align-items:center;gap:12px;width:100%">
+          <div class="gap-icon">⚙️</div>
+          <div class="gap-info">
+            <div class="gap-name">Process automation</div>
+            <div class="gap-detail">Separates replaceable from irreplaceable in 54% of listings</div>
+          </div>
+          <span class="g-tag g-tag-amber" style="flex-shrink:0">Rising fast</span>
         </div>
-        <span class="g-tag g-tag-amber">Rising fast</span>
+        <div style="margin-left:46px;background:var(--bg3);border-radius:var(--radius);padding:9px 12px;width:calc(100% - 46px)">
+          <div style="font-size:11px;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px">Free starting point</div>
+          <div style="font-size:12px;color:var(--text2)"><a href="https://zapier.com/learn" target="_blank" style="color:var(--green);text-decoration:none;font-weight:500">Zapier's free automation course</a> — no coding required. Learn to automate one repetitive task in your role this week. Takes 3 hours.</div>
+        </div>
+      </div>
+      <div style="padding:12px 18px;background:var(--bg3);border-top:1px solid var(--border)">
+        <div style="font-size:12px;color:var(--text3)">🔒 <strong style="color:var(--text2)">Pro unlocks:</strong> All skill gaps for your role, a prioritised week-by-week plan combining these into one structured roadmap, plus monthly updates as the market shifts.</div>
       </div>
     </div>
 
@@ -1398,10 +1565,11 @@ footer{
       </div>
       <div class="lock-gate">
         <div class="lock-card">
-          <div class="lock-ic">🔒</div>
-          <div class="lock-t">Unlock your full roadmap</div>
-          <div class="lock-p">Week-by-week plan, curated resources, and monthly score alerts when the market shifts.</div>
-          <button class="btn btn-green btn-full" onclick="show('pricing-page')">Unlock for ₹999/mo →</button>
+          <div class="lock-ic">🗺️</div>
+          <div class="lock-t">Your personal week-by-week roadmap</div>
+          <div class="lock-p">Takes your 3 gaps above and turns them into a structured plan — which to fix first, exactly how long it takes at your pace, and the best resources in order. Updates automatically every month.</div>
+          <button class="btn btn-green btn-full" onclick="showPayment()">Unlock for ₹999/mo →</button>
+          <div style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px">Cancel anytime · No hidden fees · 7-day refund if not useful</div>
         </div>
       </div>
     </div>
@@ -1433,10 +1601,11 @@ footer{
         <div class="p-period">forever</div>
         <ul class="p-feats">
           <li><span class="ck">✓</span>Survival score</li>
+          <li><span class="ck">✓</span>Full score breakdown & rationale</li>
           <li><span class="ck">✓</span>Top 3 skill gaps</li>
           <li><span class="ck">✓</span>Monthly score update</li>
-          <li class="dim"><span class="lk">·</span>Full roadmap</li>
-          <li class="dim"><span class="lk">·</span>Detailed gap radar</li>
+          <li class="dim"><span class="lk">·</span>All skill gaps (full list)</li>
+          <li class="dim"><span class="lk">·</span>Week-by-week roadmap</li>
           <li class="dim"><span class="lk">·</span>Score change alerts</li>
         </ul>
         <button class="btn btn-ghost btn-full" onclick="show('ob')">Get started free</button>
@@ -1619,6 +1788,26 @@ document.getElementById('ob-industry').addEventListener('change', renderSkills);
 
 // ONBOARDING STEPS
 function goStep(n){
+  // Validate mandatory fields before moving from step 1
+  if(n===2){
+    const job = document.getElementById('ob-job-input').value.trim();
+    const companyGroup = document.getElementById('company-group');
+    const company = document.getElementById('ob-company');
+    const companyVisible = companyGroup.style.display !== 'none';
+    if(!job){
+      document.getElementById('ob-job-input').style.borderColor='var(--red)';
+      document.getElementById('ob-job-input').focus();
+      return;
+    }
+    if(companyVisible && !company.value.trim()){
+      company.style.borderColor='var(--red)';
+      company.focus();
+      return;
+    }
+    document.getElementById('ob-job-input').style.borderColor='';
+    company.style.borderColor='';
+  }
+
   document.querySelectorAll('.ob-step').forEach(s=>s.classList.remove('active'));
   document.getElementById('obs'+n).classList.add('active');
   for(let i=1;i<=3;i++){
@@ -1649,7 +1838,14 @@ function runScore(){
   let cur = 0;
 
   const jobVal = document.getElementById('ob-job-input').value.trim();
-  document.getElementById('score-name').textContent = jobVal || 'there';
+  const nameVal = document.getElementById('ob-name') ? document.getElementById('ob-name').value.trim().split(' ')[0] : '';
+  const companyVal = document.getElementById('ob-company') ? document.getElementById('ob-company').value.trim() : '';
+  document.getElementById('score-name').textContent = nameVal || jobVal || 'there';
+  const ctxLine = document.getElementById('score-context-line');
+  if(ctxLine){
+    if(jobVal && companyVal) ctxLine.textContent = `Analysed as: ${jobVal} at ${companyVal}`;
+    else if(jobVal) ctxLine.textContent = `Analysed as: ${jobVal}`;
+  }
 
   num.textContent = '0';
   fill.style.width = '0%';
@@ -1693,11 +1889,24 @@ function closeSignin(){
   document.getElementById('signin-popup').classList.remove('show');
 }
 
-function handleSignin(){
+function signIn(nameOrEmail){
   signedIn = true;
+  const obName = document.getElementById('ob-name') ? document.getElementById('ob-name').value.trim() : '';
+  const displayName = obName || (nameOrEmail ? nameOrEmail.split('@')[0] : 'You');
+  const initials = displayName.slice(0,2).toUpperCase();
+
+  // Swap sign in button for profile pill
+  document.getElementById('nav-signin').style.display = 'none';
+  const profileEl = document.getElementById('nav-profile');
+  profileEl.style.display = 'flex';
+  document.getElementById('nav-avatar').textContent = initials;
+  document.getElementById('nav-profile-name').textContent = displayName.split(' ')[0];
+
+  // Update CTA
+  const cta = document.querySelector('.nav-cta');
+  if(cta) cta.textContent = 'My dashboard';
+
   closeSignin();
-  document.getElementById('nav-signin').textContent = '✓ Signed in';
-  document.getElementById('nav-signin').style.color = 'var(--green)';
 }
 
 function showPayment(){
@@ -1725,15 +1934,15 @@ function closePayment(){
       <div class="modal-benefit-row"><span class="mbr-dot"></span><span>Your skill profile saved — no re-entering next time</span></div>
     </div>
 
-    <button class="modal-btn-google" onclick="closeSignin()">
+    <button class="modal-btn-google" onclick="signIn('Google User')">
       <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/><path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2.01c-.72.48-1.63.77-2.7.77-2.08 0-3.84-1.4-4.47-3.29H1.83v2.07A8 8 0 0 0 8.98 17z"/><path fill="#FBBC05" d="M4.51 10.53A4.8 4.8 0 0 1 4.26 9c0-.53.09-1.04.25-1.53V5.4H1.83A8 8 0 0 0 .98 9c0 1.29.31 2.51.85 3.6l2.68-2.07z"/><path fill="#EA4335" d="M8.98 3.58c1.17 0 2.23.4 3.06 1.2l2.3-2.3A8 8 0 0 0 .98 9l2.82 2.07C4.14 4.98 6.1 3.58 8.98 3.58z"/></svg>
       Continue with Google
     </button>
 
     <div class="modal-divider"><span>or</span></div>
 
-    <input class="modal-input" type="email" placeholder="Enter your email address" />
-    <button class="modal-btn-green" onclick="closeSignin()">Send me score alerts →</button>
+    <input class="modal-input" id="signin-email-input" type="email" placeholder="Enter your email address" />
+    <button class="modal-btn-green" onclick="signIn(document.getElementById('signin-email-input').value || 'there')">Send me score alerts →</button>
 
     <div class="modal-skip" onclick="closeSignin()">No thanks, I'll check manually</div>
   </div>
@@ -1780,7 +1989,10 @@ function closePayment(){
 
     <div style="display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1L1 4v4l5 3 5-3V4L6 1z" stroke="#5A5A56" stroke-width="1" fill="none"/></svg>
-      <span style="font-size:11px;color:var(--text3)">Secured by Stripe · Cancel anytime</span>
+      <span style="font-size:11px;color:var(--text3)">Payments processed by <a href="https://stripe.com/docs/security" target="_blank" style="color:var(--green);text-decoration:none;">Stripe</a> · PCI-DSS compliant · Cancel anytime</span>
+    </div>
+    <div style="text-align:center;margin-top:8px">
+      <a href="https://stripe.com/docs/security" target="_blank" style="font-size:11px;color:var(--text3);text-decoration:underline;text-underline-offset:2px;">What is Stripe and how is my card protected? →</a>
     </div>
   </div>
 </div>
